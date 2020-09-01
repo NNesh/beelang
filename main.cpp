@@ -1,6 +1,8 @@
 #include <string>
 #include <iostream>
+#include <memory>
 #include "lexer.h"
+#include "syntax.h"
 
 
 int main(int argc, char const *argv[])
@@ -13,11 +15,10 @@ int main(int argc, char const *argv[])
 
     try
     {
-        Lexer lexer(argv[1]);
+        auto lexer = std::make_shared<Lexer>(argv[1]);
+        Syntax syntax(lexer);
 
-        auto token = lexer.getToken();
-
-        std::cout << token << std::endl;
+        syntax.makeTree();
     }
     catch (const std::exception& e)
     {

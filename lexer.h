@@ -8,7 +8,7 @@ class Lexer
 public:
     Lexer(const std::string *path);
     Lexer(const char* path);
-    ~Lexer();
+    virtual ~Lexer();
 
     std::string& getToken() const;
 

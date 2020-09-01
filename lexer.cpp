@@ -39,7 +39,5 @@ std::string& Lexer::getToken() const
 
     std::string* word = new std::string(); 
 
-    *entryFile >> *word;
-
     return *word;
 }
