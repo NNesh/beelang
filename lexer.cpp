@@ -30,14 +30,30 @@ char Lexer::getNext()
     return entryFile->get();;
 }
 
-std::string& Lexer::getToken() const
+Token* Lexer::getToken() const
 {
     if (entryFile == nullptr || !entryFile->is_open())
     {
         throw std::logic_error("Lexer has no opened files");
     }
 
-    std::string* word = new std::string(); 
+    std::string word;
+    *entryFile >> word;
 
-    return *word;
+    Token::Type type = Token::Type::NONE;
+
+    if (word == "if")
+        type = Token::Type::IF;
+    else if (word == "=")
+        type = Token::Type::ASSIGN;
+    else if (word == "+")
+        type = Token::Type::PLUS;
+    else if (word == "-")
+        type = Token::Type::MINUS;
+    else if (word == "==")
+        type = Token::Type::EQUAL;
+    else if (!word.empty())
+        type = Token::Type::ID;
+
+    return new Token(type);
 }

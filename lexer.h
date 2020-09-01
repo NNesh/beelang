@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <string>
+#include "token.h"
 
 class Lexer
 {
@@ -10,7 +11,7 @@ public:
     Lexer(const char* path);
     virtual ~Lexer();
 
-    std::string& getToken() const;
+    Token* getToken() const;
 
 private:
     std::ifstream* entryFile;

@@ -10,9 +10,9 @@ void Syntax::makeTree()
 {
     auto token = lexer->getToken();
 
-    while (!token.empty())
+    while (!token->empty())
     {
-        std::cout << "Word: " << token << std::endl;
+        std::cout << "Word: " << *token << std::endl;
 
         token = lexer->getToken();
     }
