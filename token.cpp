@@ -1,8 +1,20 @@
-#include "token.h"
 #include <cstring>
+#include "token.h"
 
-Token::Token(Token::Type type)
+std::map<Token::Type, const char*> Token::typeStr = {
+    { Token::Type::NONE, "None" },
+    { Token::Type::INT, "Integer" },
+    { Token::Type::ID, "Id" },
+    { Token::Type::PACKAGE, "Package" },
+    { Token::Type::PLUS, "+" },
+    { Token::Type::MINUS, "-" },
+    { Token::Type::ASSIGN, "=" },
+    { Token::Type::RETURN, "return" },
+};
+
+Token::Token(Token::Type type, const char* val)
 {
+    value = val;
     this->type = type;
 }
 
@@ -19,4 +31,14 @@ Token::Type Token::getType() const
 bool Token::empty() const
 {
     return type == Token::Type::NONE;
+}
+
+std::string Token::toString()
+{
+    static std::string postfix { ">" };
+    static std::string prefix { "<" };
+    static std::string splitter { ", " };
+
+    std::string ts { typeStr[type] };
+    return prefix + ts + splitter + value + postfix;
 }

@@ -52,8 +52,12 @@ Token* Lexer::getToken() const
         type = Token::Type::MINUS;
     else if (word == "==")
         type = Token::Type::EQUAL;
+    else if (word == "package")
+        type = Token::Type::PACKAGE;
+    else if (word == "return")
+        type = Token::Type::RETURN;
     else if (!word.empty())
         type = Token::Type::ID;
 
-    return new Token(type);
+    return new Token(type, word.c_str());
 }

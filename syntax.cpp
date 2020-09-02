@@ -12,7 +12,7 @@ void Syntax::makeTree()
 
     while (!token->empty())
     {
-        std::cout << "Word: " << *token << std::endl;
+        std::cout << "Word: " << token->toString() << std::endl;
 
         token = lexer->getToken();
     }
