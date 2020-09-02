@@ -9,6 +9,11 @@ class Lexer
 public:
     Lexer(const std::string *path);
     Lexer(const char* path);
+
+    Lexer(Lexer& lexer) = delete;
+
+    Lexer(Lexer&& lexer);
+
     virtual ~Lexer();
 
     Token* getToken() const;

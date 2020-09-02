@@ -10,6 +10,13 @@ Lexer::Lexer(const char* path)
     openFile(path);
 }
 
+Lexer::Lexer(Lexer&& lexer)
+{
+    entryFile = lexer.entryFile;
+
+    lexer.entryFile = nullptr;
+}
+
 Lexer::~Lexer()
 {
     closeFile();
