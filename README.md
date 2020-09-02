@@ -1,3 +1,3 @@
-# <center> BeeLang </center>
+# BeeLang
 
 This is a test compiler.
