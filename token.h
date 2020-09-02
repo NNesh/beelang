@@ -6,8 +6,6 @@
 #define ATTR_KEY_TYPE const char*
 #define ATTR_VALUE_TYPE const char *
 
-#define ENUM_TO_STR(ENUM) std::string {#ENUM}
-
 class Token
 {
 public:
