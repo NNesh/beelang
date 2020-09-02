@@ -3,7 +3,7 @@ SRCS = main.cpp \
 	syntax.cpp \
 	token.cpp
 
-OURFILE = a.out
+OUTFILE = a.out
 
 build:
-	g++ -o ${OURFILE} ${SRCS}
+	g++ -o ${OUTFILE} ${SRCS}
