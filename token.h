@@ -20,6 +20,9 @@ public:
         PACKAGE,
         ID,
         RETURN,
+        FUNCTION,
+        OPEN_CURLY,
+        CLOSED_CURLY,
     };
 
     Type type;

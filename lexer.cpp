@@ -63,6 +63,12 @@ Token* Lexer::getToken() const
         type = Token::Type::PACKAGE;
     else if (word == "return")
         type = Token::Type::RETURN;
+    else if (word == "func")
+        type = Token::Type::FUNCTION;
+    else if (word == "{")
+        type = Token::Type::OPEN_CURLY;
+    else if (word == "}")
+        type = Token::Type::CLOSED_CURLY;
     else if (!word.empty())
         type = Token::Type::ID;
 

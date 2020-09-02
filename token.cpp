@@ -10,7 +10,11 @@ std::map<Token::Type, const char*> Token::typeStr = {
     { Token::Type::MINUS, "-" },
     { Token::Type::ASSIGN, "=" },
     { Token::Type::RETURN, "return" },
+    { Token::Type::FUNCTION, "function" },
+    { Token::Type::OPEN_CURLY, "{"},
+    { Token::Type::CLOSED_CURLY, "}" },
 };
+
 
 Token::Token(Token::Type type, const char* val)
 {
