@@ -10,6 +10,16 @@ void Syntax::makeTree()
 {
     auto token = lexer->getToken();
 
+    if (token->getType() != Token::Type::PACKAGE)
+        throw std::logic_error("Error: the script file doesn't has a package keyword in begin");
+    
+    token = lexer->getToken();
+
+    if (token->getType() != Token::Type::ID)
+        throw std::logic_error("Error: no package name");
+
+    // TODO: create a node
+
     while (!token->empty())
     {
         std::cout << "Word: " << token->toString() << std::endl;
