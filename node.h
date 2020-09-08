@@ -19,7 +19,7 @@ public:
 private:
     std::shared_ptr<Token> token;
 
-    std::vector<std::unique_ptr<Node>> childs;
+    std::vector<std::shared_ptr<Node>> childs;
     std::shared_ptr<Node> parent;
 
     // Table of IDs

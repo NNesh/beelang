@@ -24,7 +24,7 @@ Node::Node(const std::shared_ptr<Node>& parent, const std::shared_ptr<Token>& to
 
 Node& Node::addChild(Node* node)
 {
-    childs.push_back(std::unique_ptr<Node>(node));
+    childs.push_back(std::shared_ptr<Node>(node));
 }
 
 std::shared_ptr<Token> Node::getIdToken(const std::string& name)
